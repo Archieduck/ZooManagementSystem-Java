@@ -4,7 +4,7 @@ import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Rabbit extends AbstractAnimal implements SmallAnimal, CanBeGroomed {
+public class Rabbit extends AnimalThatCanBeGroomed implements SmallAnimal {
 
     private LocalDateTime lastGroomed;
 
@@ -19,12 +19,7 @@ public class Rabbit extends AbstractAnimal implements SmallAnimal, CanBeGroomed 
     }
 
     @Override
-    public void groom() {
-        lastGroomed = LocalDateTime.now();
-    }
-
-    @Override
     public String toString() {
-        return MessageFormat.format("{0}; Last Groomed {1}", super.toString(), lastGroomed);
+        return MessageFormat.format("{0}; Last Groomed {1}", super.toString(), super.getLastGroomed());
     }
 }
