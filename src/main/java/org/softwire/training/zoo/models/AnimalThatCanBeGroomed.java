@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 public class AnimalThatCanBeGroomed extends AbstractAnimal implements CanBeGroomed {
     private LocalDate dateOfBirth;
-    private LocalDateTime lastFed;
     private LocalDate lastGroomed;
 
 

@@ -4,9 +4,9 @@ import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Zebra extends AnimalThatCanBeGroomed implements LargeAnimal {
+public class Zebra extends AnimalThatCanBeGroomed implements LargeAnimal, CanHaveMuckSwept {
 
-    private LocalDateTime lastGroomed;
+    private LocalDate lastMuckedOut;
 
     public Zebra(LocalDate dateOfBirth) {
         super(dateOfBirth);
@@ -14,6 +14,9 @@ public class Zebra extends AnimalThatCanBeGroomed implements LargeAnimal {
 
     @Override
     public String toString() {
-        return MessageFormat.format("{0}; Last Groomed {1}", super.toString(), super.getLastGroomed());
+        return MessageFormat.format("{0}; Last Groomed {1}; Last mucked out {2}", super.toString(), super.getLastGroomed(), lastMuckedOut);
     }
+
+    @Override
+    public void muckOut() { lastMuckedOut = LocalDate.now(); }
 }

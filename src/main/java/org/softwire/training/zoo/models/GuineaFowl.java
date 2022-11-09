@@ -4,10 +4,9 @@ import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class GuineaFowl extends AbstractAnimal implements SmallAnimal, CanBeGroomed, CanHaveMuckSwept {
+public class GuineaFowl extends AnimalThatCanBeGroomed implements SmallAnimal, CanHaveMuckSwept {
 
-    private LocalDateTime lastGroomed;
-    private LocalDateTime lastMucked;
+    private LocalDate lastMuckedOut;
 
     public GuineaFowl(LocalDate dateOfBirth) {
         super(dateOfBirth);
@@ -20,15 +19,10 @@ public class GuineaFowl extends AbstractAnimal implements SmallAnimal, CanBeGroo
     }
 
     @Override
-    public void groom() {
-        lastGroomed = LocalDateTime.now();
-    }
-
-    @Override
     public String toString() {
-        return MessageFormat.format("{0}; Last Groomed {1}", super.toString(), lastGroomed);
+        return MessageFormat.format("{0}; Last Groomed {1}; Last mucked out {2}", super.toString(), super.getLastGroomed(), lastMuckedOut);
     }
 
     @Override
-    public void muckOut() { lastMucked = LocalDateTime.now(); }
+    public void muckOut() { lastMuckedOut = LocalDate.now(); }
 }

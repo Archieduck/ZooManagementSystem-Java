@@ -22,6 +22,10 @@ public class Keeper<T extends Animal> {
         animal.feed();
     }
 
+    public void muckOut(CanHaveMuckSwept animal) {
+        animal.muckOut();
+    }
+
     public List<T> getResponsibleAnimals() {
         return new ArrayList<>(animals);
     }
